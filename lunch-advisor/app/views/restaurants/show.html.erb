@@ -1,0 +1,7 @@
+<h2> Name: <%= @restaurant.name %></h2>
+<h3> Date Visited: <%= @restaurant.lastVisit %></h3>
+<p> Description: <%= @restaurant.description %></p>
+
+<%= link_to "back", root_path %>
+<%= link_to "Edit", edit_restaurant_path(@restaurant) %>
+<%= link_to "Delete", restaurant_path(@restaurant), method: :delete, data: {confirm: "Are you sure?"} %>
