@@ -1,6 +1,21 @@
-<h2> Name: <%= @restaurant.name %></h2>
-<h3> Date Visited: <%= @restaurant.lastVisit %></h3>
-<p> Description: <%= @restaurant.description %></p>
+<div class="row">
+    <div class="col-md-4">
+       <h3> Picture</h3>
+    </div>
+    
+     <div class="col-md-8">
+        <h2> Name: <%= @restaurant.name %></h2>
+        <h4> Description: <%= @restaurant.description %></h4>
+        <h5> Date Visited: <%= @restaurant.lastVisit %></h5>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+       <!-- ratings go here-->
+    </div>
+
+</div>
 
 <%= link_to "back", root_path %>
 
