@@ -11,8 +11,16 @@
 </div>
 
 <div class="row">
+    
     <div class="col-md-4">
-       <!-- ratings go here-->
+       <!-- ratings go here -->
+       <!-- thi line will output all reviews for a restaurant -->
+       <%= render @restaurant.reviews %>
+       
+       <div>
+           <%= link_to "Add Review", new_restaurant_review_path(@restaurant) %>
+       </div>
+       
     </div>
 
 </div>
