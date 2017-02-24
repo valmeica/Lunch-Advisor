@@ -1,0 +1,84 @@
+<div class="row">
+    
+    <div class="col-md-4">
+    
+       <h3> Map </h3>
+       <div class: "restaurant-show"> The map would show here</div>
+    
+    </div>
+    
+     <div class="col-md-8">
+    
+        <div class="restaurant-info">
+    
+            <h2 class="restaurant-name"> <%= @restaurant.name %></h2>
+            <h2 class="avg-rating">Average Rating</h2>
+            <div class="average-review-rating" data-score=<%= @average_review %> > </div>
+            <span class="number-of-reviews">Based on <%= @restaurant.reviews.count %> reviews</span>
+            <h4> Date Visited: <%= @restaurant.lastVisit %></h4>
+            <h5 class="restaurant-description"> Description: <%= @restaurant.description %></h5>
+           
+    
+        </div>
+    
+    </div>
+
+</div>
+
+<div class="row">
+    
+    <div class="col-md-4">
+        
+        <div class="reviews">
+           <!-- ratings go here -->
+           <!-- this line will output all reviews for a restaurant -->
+           <h1>Reviews</h1>
+           <%= render @restaurant.reviews %>
+           
+           <div>
+               <%= link_to "Add Review", new_restaurant_review_path(@restaurant), class: "btn-custom" %>
+           </div>
+         </div>
+           
+    </div>
+
+</div>
+
+<div class="links btn-group">
+    
+</br>
+    <div class="">
+    <%= link_to "back", root_path, class: "btn btn-custom" %>
+
+    <% if user_signed_in? %>
+    
+        <% if @restaurant.user_id == current_user.id%>
+        
+            <%= link_to "Edit", edit_restaurant_path(@restaurant), class: "btn btn-custom" %>
+            <%= link_to "Delete", restaurant_path(@restaurant), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-custom" %>
+        <% end %>
+    
+    <% end %>
+    </div>
+</div>
+
+
+<script>
+	$('.review-rating').raty({
+		readOnly: true,
+		score: function() {
+			return $(this).attr('data-score');
+		},
+		path: '/assets/'
+	});
+</script>
+
+<script>
+    	$('.average-review-rating').raty({
+		readOnly: true,
+		path: '/assets/',
+		score: function() {
+			return $(this).attr('data-score')
+		}
+	});
+</script>
