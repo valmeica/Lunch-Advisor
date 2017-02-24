@@ -1,18 +1,23 @@
-<h1>Restaurant list</h1>
-
-<% if @restaurants.count == 0 %>
-
-    <h1>There are no Restaurants. Please suggested one.</h1>
-<% else %>
-    <div class="row">
-
-        <% @restaurants.each do |restaurant| %>
-            <div class="col-md-12">
-                <h2> <%= link_to restaurant.name, restaurant_path(restaurant)  %></h2>
-                 <h5>  <%=  restaurant.lastVisit %></h5>
-            </div>
+ 
+ 
+ <div class="col-md-6 col-md-offset-3">
+     <div class="new-review-form">
+        <h1>Restaurant list</h1>
+        
+        <% if @restaurants.count == 0 %>
+        
+            <h1>There are no Restaurants. Please suggest one.</h1>
+        <% else %>
+        
+                <% @restaurants.each do |restaurant| %>
+                        
+                        <h2> <%= link_to restaurant.name, restaurant_path(restaurant)  %></h2>
+                        <h5>Last visit: -- <%=  restaurant.lastVisit %></h5>
+                
+                <% end %>
+            
+            
         <% end %>
-    </div>
-    
-<% end %>
+     </div>   
+</div>
 
